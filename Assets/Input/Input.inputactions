@@ -16,7 +16,7 @@
                 },
                 {
                     "name": "Fire",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "7eb6f5ff-a314-44cd-a5db-d484c2a446c8",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -194,6 +194,17 @@
                     "name": "",
                     "id": "2092965d-12db-4823-be77-30417ce33d6e",
                     "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fd209f77-6292-418f-8a63-2e5a534e958d",
+                    "path": "<Touchscreen>/Press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

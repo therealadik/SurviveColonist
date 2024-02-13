@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: d5035dd653eae514bb199d5c6f23d487
+guid: 485dc4fdd6529d9448e34257dc1b8882
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7350361139684802505
-    second: death_5_0
-  - first:
-      213: 4287116352539134380
-    second: death_5_1
+      213: -2346302928887187388
+    second: bullet_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -54,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 2024
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,43 +113,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: death_5_0
+      name: bullet_0
       rect:
         serializedVersion: 2
-        x: 533
-        y: 426
-        width: 769
-        height: 430
+        x: 379
+        y: 379
+        width: 1290
+        height: 1290
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9cf7fbd338ab10660800000000000000
-      internalID: 7350361139684802505
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death_5_1
-      rect:
-        serializedVersion: 2
-        x: 1070
-        y: 730
-        width: 134
-        height: 139
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ca90dd7cb95ee7b30800000000000000
-      internalID: 4287116352539134380
+      spriteID: 448783cdae1407fd0800000000000000
+      internalID: -2346302928887187388
       vertices: []
       indices: 
       edges: []
@@ -160,7 +136,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 035f1d0d68f60db43b012f5239599b0d
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -168,8 +144,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      death_5_0: 7350361139684802505
-      death_5_1: 4287116352539134380
+      bullet_0: -2346302928887187388
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

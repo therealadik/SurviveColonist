@@ -50,3 +50,6 @@ TagManager:
   - name: WeaponDown
     uniqueID: 3649950771
     locked: 0
+  - name: Effects
+    uniqueID: 971571843
+    locked: 0

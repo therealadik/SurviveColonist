@@ -1,4 +1,5 @@
 using Cinemachine;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,25 +7,27 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
-    [SerializeField] private Transform weapon;
-    [SerializeField] private CinemachineImpulseSource impulseSource;
-    [SerializeField] private Transform shootPoint;
 
-    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] private WeaponBase weapon;
 
+    private Transform weaponTransform;
     private Vector2 moveVal;
     private Rigidbody2D rb;
     private Vector3 mousePosition;
-    // Start is called before the first frame update
+    private SpriteRenderer weaponSpriteRenderer;
+
+    private bool fireActivate = false;
+    private float lastFireTime;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Start()
+    private void Start()
     {
-
+        weaponTransform = weapon.transform;
+        weaponSpriteRenderer = weapon.GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -32,11 +35,16 @@ public class PlayerController : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
 
-        Vector2 direction = (mousePosition - transform.position).normalized;
+        Vector2 direction = (mousePosition - weaponTransform.position).normalized;
 
         bool isFacingRight = mousePosition.x > transform.position.x;
         transform.localScale = new Vector3(isFacingRight ? 1 : -1, 1, 1);
 
+        RotateWeapon(direction, isFacingRight);
+    }
+
+    private void RotateWeapon(Vector2 direction, bool isFacingRight)
+    {
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         bool isWeaponAimedUp = (angle > 0 && angle < 180) || (angle < -180 && angle > -360);
@@ -45,24 +53,21 @@ public class PlayerController : MonoBehaviour
         if (!isFacingRight)
             angle -= 180f;
 
-
         if (isWeaponAimedDown)
         {
-            spriteRenderer.sortingLayerName = "WeaponDown";
+            weaponSpriteRenderer.sortingLayerName = "WeaponDown";
         }
         else if (isWeaponAimedUp)
         {
-            spriteRenderer.sortingLayerName = "WeaponUp";
+            weaponSpriteRenderer.sortingLayerName = "WeaponUp";
         }
 
-        weapon.rotation = Quaternion.Euler(0, 0, angle);
-    }
+        weaponTransform.rotation = Quaternion.Euler(0, 0, angle);
 
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-
+        if (fireActivate)
+        {
+            weapon.Fire(direction);
+        }
     }
 
     private void FixedUpdate()
@@ -77,6 +82,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnFire(InputValue input)
     {
-        impulseSource.GenerateImpulse();
+        fireActivate = input.isPressed;
     }
 }
